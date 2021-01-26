@@ -35,7 +35,7 @@ class Jsc extends CI_Controller {
 		$resultKelurahan = json_decode($output2);
 	    curl_close($ch);
 
-
+		$result = [];
 		foreach($resultRS->data as $key=>$val)
 	    {
 
@@ -61,7 +61,7 @@ class Jsc extends CI_Controller {
  				 };
  			 }
 
-			$config[] = [
+			$result[] = [
 
 					   'nama_rsu' => $val->nama_rsu,
 					   'jenis_rsu' => $val->jenis_rsu,
@@ -90,7 +90,10 @@ class Jsc extends CI_Controller {
 			   ];
 	    }
 
-		var_dump($config);
+		echo json_encode(array(
+			'count' => count($result),
+			'data' => $result
+		));
 
 	}
 }
