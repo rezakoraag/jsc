@@ -9,6 +9,8 @@ class Jsc extends CI_Controller {
 
 	function index() {
 
+		header('Content-type: application/json');
+
 		$this->data['APPS_SITETITLE'] = "Jakarta Smart City";
 
 		$ch = curl_init();
